@@ -194,7 +194,7 @@ module IRB
         when :@const
           evaluate(name).methods if constants.include?(name)
         end
-      end
+      end || []
     end
   end
 end

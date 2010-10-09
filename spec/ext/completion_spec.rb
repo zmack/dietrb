@@ -78,6 +78,10 @@ describe "IRB::Completion" do
       end
       
       describe "returns *all* public instance methods of the class (the receiver) that" do
+        it "matches as a Nil literal" do
+          complete('nil.').should == []
+        end
+
         it "matches as a Regexp literal" do
           complete('//.').should == imethods(Regexp, '//')
           complete('/^(:[^:.]+)\.([^.]*)$/.').should == imethods(Regexp, '/^(:[^:.]+)\.([^.]*)$/')

@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
      "lib/irb/ext/colorize.rb",
      "lib/irb/ext/completion.rb",
      "lib/irb/ext/history.rb",
-     "lib/irb/ext/macruby.rb",
      "lib/irb/formatter.rb",
      "lib/irb/source.rb",
      "lib/irb/version.rb",

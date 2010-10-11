@@ -17,6 +17,7 @@ module CompletionHelper
   end
 end
 
+
 class CompletionStub
   def self.a_cmethod
   end
@@ -26,6 +27,11 @@ class CompletionStub
 end
 
 class Playground
+  module MockNamespace
+    class Stubsy
+    end
+  end
+
   CompletionStub = Object.new
   def CompletionStub.a_singleton_method; end
   
@@ -74,6 +80,10 @@ describe "IRB::Completion" do
         
         it "matches as a top level constant" do
           complete('::CompletionStub.').should == methods(::CompletionStub, '::CompletionStub')
+        end
+
+        it "matches as a namespaced constant" do
+          complete('MockNamespace::Stubsy.').should == methods(Playground::MockNamespace::Stubsy)
         end
       end
       
